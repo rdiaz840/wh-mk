@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ganemos.net</title>
+
+  <link rel="icon" type="image/webp" href="favicon-whatsapp.webp">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1158806286302822'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1158806286302822&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root{
+      --btn-green:#25D366;
+      --btn-green-dark:#128C7E;
+      --shadow:0 12px 40px rgba(0,0,0,.35);
+      --overlay: rgba(0,0,0,.45);
+      --blur: 24px;
+      --btn-top-desktop: 60vh; /* escritorio */
+      --btn-top-mobile: 78vh;  /* mobile */
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      height:100%;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial;
+      background:#000;color:#fff;
+    }
+
+    .stage{ display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+
+    .hero{
+      position:relative;
+      height:90vh;
+    }
+
+    .hero .bg{
+      position:absolute; inset:0;
+      background:url("fondo.jpeg") center/cover no-repeat;
+      filter: blur(var(--blur)) brightness(.9);
+      transform: scale(1.06);
+      z-index:0;
+    }
+
+    .hero .overlay{
+      position:absolute; inset:0; background: var(--overlay); z-index:1;
+    }
+
+    .hero .fg{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      z-index:2; pointer-events:none;
+    }
+    .hero .fg img{
+      height:90vh; width:auto; max-width:100%;
+      object-fit:contain; pointer-events:none;
+    }
+
+    /* Botón */
+    .cta{
+      position:absolute;
+      left:50%; transform:translateX(-50%);
+      top: var(--btn-top-desktop); /* por defecto escritorio */
+      z-index:3;
+
+      display:inline-flex; align-items:center; justify-content:center; gap:.8rem;
+      padding:1.2rem 1.8rem; border-radius:999px;
+      width: clamp(240px, 80vw, 420px);
+      background: linear-gradient(135deg,var(--btn-green),var(--btn-green-dark));
+      color:#fff; text-decoration:none; font-weight:900;
+      font-size: clamp(1.1rem, 3.8vw, 1.4rem);
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .cta:hover{ transform:translateX(-50%) scale(1.06); filter:saturate(1.08); }
+    .cta:active{ transform:translateX(-50%) scale(0.98); }
+    .wa-icon{ width:34px; height:34px; }
+
+    /* Mobile: botón más abajo */
+    @media (max-width: 767px){
+      .cta{ top: var(--btn-top-mobile); }
+    }
+
+    /* Beneficios arriba de todo (z-index mayor) */
+    .benefits{
+      height:10vh;
+      display:flex; justify-content:center; align-items:center;
+      padding:1rem;
+      position:relative;
+      z-index:4; /* asegura que quede por encima del fondo */
+    }
+    .benefit-box{
+      background: rgba(0,0,0,.75);
+      border-radius:12px;
+      padding:1rem 1.5rem;
+      box-shadow:0 6px 20px rgba(0,0,0,.4);
+      text-align:center;
+      max-width:min(560px, 92vw);
+    }
+    .benefit-box h3{ color:#ffd83b; margin:0 0 .5rem; font-size:1.2rem; }
+    .benefit-box p{ margin:.2rem 0; font-size:1rem; }
+  </style>
+</head>
+<body>
+  <main class="stage">
+
+    <section class="hero" aria-label="Imagen destacada">
+      <div class="bg" aria-hidden="true"></div>
+      <div class="overlay" aria-hidden="true"></div>
+
+      <div class="fg">
+        <img src="fondo.jpeg" alt="Imagen de portada">
+      </div>
+
+      <a
+        class="cta"
+        href="https://wa.me/543821450244?text=%C2%A1Buen4s!%20Me%20gust4r%C3%AD4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es%3A"
+        target="_blank" rel="noopener"
+        aria-label="Abrir WhatsApp para crear usuario"
+        onclick="fbq('trackCustom', 'WhatsAppClick')"
+      >
+        <img src="favicon-whatsapp.webp" alt="WhatsApp" class="wa-icon" />
+        ¡Creá tu usuario!
+      </a>
+    </section>
+
+    <section class="benefits">
+      <div class="benefit-box">
+        <h3>Beneficios Exclusivos</h3>
+        <p>Recibe bonos de bienvenida y promociones especiales.</p>
+        <p>Mínimo de carga: $2000</p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
